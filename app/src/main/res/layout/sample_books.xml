@@ -32,7 +32,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/book_1" />
+                app:srcCompat="@drawable/book_1"
+                android:contentDescription="@string/todo" />
 
             <TextView
                 android:id="@+id/textView"
@@ -42,7 +43,8 @@
                 android:background="#EACB6D"
                 android:gravity="center"
                 android:padding="3dp"
-                android:text="TextView"
+                android:text="@string/textview"
+                android:textColor="#6D4C41"
                 app:layout_constraintEnd_toEndOf="@+id/imageView"
                 app:layout_constraintStart_toStartOf="@+id/imageView"
                 app:layout_constraintTop_toBottomOf="@+id/imageView" />
