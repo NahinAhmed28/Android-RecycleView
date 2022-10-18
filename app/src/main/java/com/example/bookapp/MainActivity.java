@@ -1,10 +1,12 @@
 package com.example.bookapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.bookapp.Adapters.BookAdapter;
 import com.example.bookapp.Models.BookModel;
@@ -26,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
 //        binding.recyclearView.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
+//                Toast.makeText( getBaseContext(), "message",Toast.LENGTH_SHORT).show();
 //
 //            }
 //        });
@@ -40,8 +43,11 @@ public class MainActivity extends AppCompatActivity {
         BookAdapter adapter = new BookAdapter(list , MainActivity.this);
         binding.recyclearView.setAdapter(adapter);
 
-        LinearLayoutManager linearlayoutmanager = new LinearLayoutManager(this);
-        binding.recyclearView.setLayoutManager(linearlayoutmanager);
+//        LinearLayoutManager linearlayoutmanager = new LinearLayoutManager(this);
+//        binding.recyclearView.setLayoutManager(linearlayoutmanager);
+
+        GridLayoutManager gridlayoutmanager = new GridLayoutManager(this,3);
+        binding.recyclearView.setLayoutManager(gridlayoutmanager);
     }
 
 
