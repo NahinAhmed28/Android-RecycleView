@@ -42,7 +42,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.viewHolder>{
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText( context, model.getBookName()+ "clicked",Toast.LENGTH_SHORT).show();
+                Toast.makeText( context, model.getBookName()+ " clicked",Toast.LENGTH_SHORT).show();
             }
         });
 
