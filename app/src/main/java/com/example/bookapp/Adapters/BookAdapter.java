@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -37,6 +38,13 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.viewHolder>{
         BookModel model =list.get(position);
         holder.bookImage.setImageResource(model.getImage());
         holder.bookText.setText(model.getBookName());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText( context, model.getBookName()+ "clicked",Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 
