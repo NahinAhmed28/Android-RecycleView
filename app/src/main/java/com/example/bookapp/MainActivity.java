@@ -1,5 +1,6 @@
 package com.example.bookapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -11,10 +12,18 @@ import android.widget.Toast;
 import com.example.bookapp.Adapters.BookAdapter;
 import com.example.bookapp.Models.BookModel;
 import com.example.bookapp.databinding.ActivityMainBinding;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
+
+//    FirebaseFirestore firestore;
+
 
     ActivityMainBinding binding;
     @Override
@@ -25,13 +34,30 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
 
-//        binding.recyclearView.setOnClickListener(new View.OnClickListener() {
+
+//        firestore = FirebaseFirestore.getInstance();
+
+
+//        Map<String,Object> user = new HasMap <>();
+//        user.put("firstname", "Nahin");
+//        user.put("lastname", "Ahmed");
+//        user.put("description", "DEV");
+
+
+//        firestore.collection("users").add(user).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
 //            @Override
-//            public void onClick(View view) {
-//                Toast.makeText( getBaseContext(), "message",Toast.LENGTH_SHORT).show();
+//            public void onSuccess(DocumentReference documentReference) {
+//                Toast.makeText(getApplicationContext(), "success", Toast.LENGTH_SHORT).show();
 //
 //            }
+//        }).addOnFailureListener(new OnFailureListener() {
+//            @Override
+//            public void onFailure(@NonNull Exception e) {
+//                Toast.makeText(getApplicationContext(), "failure", Toast.LENGTH_SHORT).show();
+//            }
 //        });
+
+
 
         ArrayList<BookModel> list = new ArrayList<>();
         list.add(new BookModel(R.drawable.book_1,"Death"));
