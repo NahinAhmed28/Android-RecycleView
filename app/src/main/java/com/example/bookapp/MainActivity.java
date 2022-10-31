@@ -14,6 +14,10 @@ import com.example.bookapp.Models.BookModel;
 import com.example.bookapp.databinding.ActivityMainBinding;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -60,23 +64,23 @@ public class MainActivity extends AppCompatActivity {
 
 
         ArrayList<BookModel> list = new ArrayList<>();
-        list.add(new BookModel(R.drawable.book_1,"Death"));
-        list.add(new BookModel(R.drawable.book_2,"Comics"));
-        list.add(new BookModel(R.drawable.book_3,"Woman"));
-        list.add(new BookModel(R.drawable.book_4,"Kids"));
-        list.add(new BookModel(R.drawable.book_5,"Arts"));
-
-        list.add(new BookModel(R.drawable.book_1,"Death"));
-        list.add(new BookModel(R.drawable.book_2,"Comics"));
-        list.add(new BookModel(R.drawable.book_3,"Woman"));
-        list.add(new BookModel(R.drawable.book_4,"Kids"));
-        list.add(new BookModel(R.drawable.book_5,"Arts"));
-
-        list.add(new BookModel(R.drawable.book_1,"Death"));
-        list.add(new BookModel(R.drawable.book_2,"Comics"));
-        list.add(new BookModel(R.drawable.book_3,"Woman"));
-        list.add(new BookModel(R.drawable.book_4,"Kids"));
-        list.add(new BookModel(R.drawable.book_5,"Arts"));
+//        list.add(new BookModel(R.drawable.book_1,"Death"));
+//        list.add(new BookModel(R.drawable.book_2,"Comics"));
+//        list.add(new BookModel(R.drawable.book_3,"Woman"));
+//        list.add(new BookModel(R.drawable.book_4,"Kids"));
+//        list.add(new BookModel(R.drawable.book_5,"Arts"));
+//
+//        list.add(new BookModel(R.drawable.book_1,"Death"));
+//        list.add(new BookModel(R.drawable.book_2,"Comics"));
+//        list.add(new BookModel(R.drawable.book_3,"Woman"));
+//        list.add(new BookModel(R.drawable.book_4,"Kids"));
+//        list.add(new BookModel(R.drawable.book_5,"Arts"));
+//
+//        list.add(new BookModel(R.drawable.book_1,"Death"));
+//        list.add(new BookModel(R.drawable.book_2,"Comics"));
+//        list.add(new BookModel(R.drawable.book_3,"Woman"));
+//        list.add(new BookModel(R.drawable.book_4,"Kids"));
+//        list.add(new BookModel(R.drawable.book_5,"Arts"));
 
         BookAdapter adapter = new BookAdapter(list , MainActivity.this);
         binding.recyclearView.setAdapter(adapter);
@@ -86,6 +90,24 @@ public class MainActivity extends AppCompatActivity {
 
         GridLayoutManager gridlayoutmanager = new GridLayoutManager(this,3);
         binding.recyclearView.setLayoutManager(gridlayoutmanager);
+
+        FirebaseDatabase.getInstance().getReference().child("books")
+                .addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                for(DataSnapshot snapshot1: snapshot.getChildren()){
+                    BookModel model=snapshot1.getValue(BookModel.class);
+                    list.add(model);
+                }
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
 

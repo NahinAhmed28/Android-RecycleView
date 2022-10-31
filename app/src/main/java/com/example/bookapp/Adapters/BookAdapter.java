@@ -1,6 +1,7 @@
 package com.example.bookapp.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.bookapp.Models.BookModel;
 import com.example.bookapp.R;
+import com.example.bookapp.ReadBookActivity;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -35,14 +38,23 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.viewHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull BookAdapter.viewHolder holder, int position) {
+
         BookModel model =list.get(position);
-        holder.bookImage.setImageResource(model.getImage());
+//        holder.bookImage.setImageResource(model.getImage());
+
+        Picasso.get().load(model.getImage()).into(holder.bookImage);
+
         holder.bookText.setText(model.getBookName());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText( context, model.getBookName()+ " clicked",Toast.LENGTH_SHORT).show();
+//                Toast.makeText( context, model.getBookName()+ " clicked",Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(context, ReadBookActivity.class);
+
+                intent.putExtra("url", model.getUrl());
+
+                context.startActivity(intent);
             }
         });
 

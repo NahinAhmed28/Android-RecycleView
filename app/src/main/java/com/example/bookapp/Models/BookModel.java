@@ -1,19 +1,25 @@
 package com.example.bookapp.Models;
 
 public class BookModel {
-    int image;
+    String image;
     String bookName;
+    String url;
 
-    public BookModel(int image, String bookName) {
+    public BookModel(String image, String bookName, String url) {
         this.image = image;
         this.bookName = bookName;
+        this.url = url;
     }
 
-    public int getImage() {
+
+
+    public BookModel(){}
+
+    public String getImage() {
         return image;
     }
 
-    public void setImage(int image) {
+    public void setImage(String image) {
         this.image = image;
     }
 
@@ -21,7 +27,15 @@ public class BookModel {
         return bookName;
     }
 
-    public void setBookName(String bookName) {
-        this.bookName = bookName;
+    public void setBookName(String url) {
+        this.url = url;
     }
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
 }
