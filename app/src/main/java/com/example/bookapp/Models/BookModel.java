@@ -27,8 +27,8 @@ public class BookModel {
         return bookName;
     }
 
-    public void setBookName(String url) {
-        this.url = url;
+    public void setBookName(String bookName) {
+        this.bookName = bookName;
     }
     public String getUrl() {
         return url;
