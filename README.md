@@ -1,14 +1,25 @@
 # Android RecycleView
 
-Android RecycleView is an Android practice project focused on RecyclerView-style list rendering. It is intended for learning adapters, item layouts, and list-based UI patterns in Android.
+Android RecycleView is an Android practice project focused on RecyclerView/list UI implementation.
 
-## Project Details
+## Features
 
-- Repository: `NahinAhmed28/Android-RecycleView`
-- Default branch: `main`
-- Visibility: public
-- Project type: Android application
-- Main focus: RecyclerView/list UI implementation
+- RecyclerView/list display workflow
+- Adapter and item layout practice
+- Android Studio/Gradle project structure
+- Mobile UI learning project
+
+## Modules
+
+- Activity module: screen lifecycle and list container
+- Adapter module: item binding and list behavior
+- Model module: data objects displayed in the list
+- Resource module: XML layouts, drawables, and strings
+- Build module: Gradle configuration
+
+## System Architecture
+
+The app follows native Android architecture. Activities/fragments render screens, adapters bind model data to list item views, and resources define layouts and styling. Data may be local or later fetched from an API.
 
 ## Getting Started
 
@@ -17,8 +28,4 @@ git clone https://github.com/NahinAhmed28/Android-RecycleView.git
 cd Android-RecycleView
 ```
 
-Open the project in Android Studio, sync Gradle, then run the app on an emulator or connected device.
-
-## Notes
-
-Document the adapter structure, item model, screenshots, and minimum SDK as the project changes.
+Open in Android Studio, sync Gradle, and run on an emulator or device.
